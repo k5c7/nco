@@ -5,9 +5,10 @@
 class NCO
 {
 public:
-    NCO(int lgtblsize, float freq);
-
+    NCO(int log_table_size, float frequency);
     float step();
+    float step_linear();
+
 private:
     const unsigned int m_log_length;
     const unsigned int m_length;
