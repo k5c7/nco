@@ -19,9 +19,9 @@ NCO::NCO(const int log_table_size, const float frequency) :
 
 float NCO::step()
 {
-    m_phase += m_phase_diff;
     unsigned int index = m_phase >> ((sizeof(unsigned int) * 8) - m_log_length);
     index &= m_mask;
+    m_phase += m_phase_diff;
     return m_table[index];
 }
 
@@ -29,7 +29,7 @@ float NCO::step_linear()
 {
     // linear interpolation applied here
 
-    m_phase += m_phase_diff;
+
 
     const unsigned int index = m_phase >> ((sizeof(unsigned int) * 8) - m_log_length);
     const unsigned int current_idx = index & m_mask;
@@ -37,6 +37,8 @@ float NCO::step_linear()
 
     // TODO: make 0x00ffffff variable dependent to unsigned int
     const float ratio = static_cast<float>(m_phase & 0x00ffffff) / 0x00ffffff;
+
+    m_phase += m_phase_diff;
 
     return m_table[current_idx] + (m_table[next_idx] - m_table[current_idx]) * ratio;
 
