@@ -29,7 +29,7 @@ int main()
 
     for (size_t idx = 0; idx < length; idx++)
     {
-        original_vector[idx] = sin(angle);
+        original_vector[idx] = sin(2 * M_PI * angle);
         nco_vector[idx] = nco.step();
         nco_linear_vector[idx] = nco_linear.step_linear();
         angle = angle + increment;
