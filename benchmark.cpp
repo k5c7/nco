@@ -10,7 +10,7 @@ void benchmark_sin(const size_t array_length, const size_t num_of_iter);
 
 int main()
 {
-    constexpr size_t array_length = 1024;
+    constexpr size_t array_length = 4096;
     constexpr size_t num_of_iter = 1e6;
 
     benchmark_nco(array_length, num_of_iter);
