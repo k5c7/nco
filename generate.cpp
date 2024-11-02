@@ -13,7 +13,7 @@ void write_as_csv(std::ofstream &output, const std::vector<float>& vec);
 
 int main()
 {
-    constexpr size_t length = 100;
+    constexpr size_t length = 1'000;
     constexpr float increment = 0.01f;
 
     std::vector<float> original_vector(length, 0);
